@@ -1,4 +1,4 @@
-#' ScrapsInfo
+#' Creates Data Frame
 #'
 #' @param link The link of the selonger pages that is suposed to be scrap
 #'
@@ -8,9 +8,9 @@
 #' @examples
 #' \dontrun{
 #'   Link<-http://www.seloger.com/list.htm?idtt=2&naturebien=1,2,4&idtypebien=1,2&ci=750056&tri=initial&surfacemin=5&surfacemax=9
-#'   df<-ScrapsInfo(Link)
+#'   df<-CreatesDataframe(Link)
 #' }
-ScrapsInfo <-function(link)
+CreatesDataframe <-function(link)
 {
   WEB_PAGE <- read_html(link)
   NO_PAGES <- GetPages(WEB_PAGE)

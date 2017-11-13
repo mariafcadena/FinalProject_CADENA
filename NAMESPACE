@@ -2,10 +2,11 @@
 
 export(CleanVector)
 export(CreateDatabase)
+export(CreatesDataframe)
 export(FixParameters)
 export(GetPages)
+export(GraphsPrices)
 export(GroupsArea)
-export(ScrapsInfo)
 import(base)
 import(plyr)
 import(rvest)

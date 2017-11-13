@@ -22,5 +22,8 @@ GetPages <-function(WEB_PAGE)
   } else {
     PRE_PAGES3<-PRE_PAGES2[[1L]][1]
   }
-  return(floor(as.numeric(PRE_PAGES3)/20))
+  TOTAL_PAGES<-floor(as.numeric(PRE_PAGES3)/20)
+  #Selonger only shows a max of 20 properties and 100 pages per filter, this restriction is to avoid duplicates
+  if (TOTAL_PAGES>100){TOTAL_PAGES<-100}
+  return(TOTAL_PAGES)
 }
