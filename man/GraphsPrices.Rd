@@ -2,14 +2,12 @@
 % Please edit documentation in R/GraphsPrices.R
 \name{GraphsPrices}
 \alias{GraphsPrices}
-\title{Graphs prices}
+\title{GraphsPrices}
 \usage{
-GraphsPrices(SelongerDF, Variables)
+GraphsPrices(SelongerDF)
 }
 \arguments{
 \item{SelongerDF}{The dataframe created from the link in Selonger}
-
-\item{Variables}{The variables that wants to be compared to the prices}
 }
 \value{
 the graph with the prices per square meter vs the input variables
@@ -21,6 +19,6 @@ Graphs prices
 \dontrun{
   Link<-http://www.seloger.com/list.htm?idtt=2&naturebien=1,2,4&idtypebien=1,2&ci=750056&tri=initial&surfacemin=5&surfacemax=9
   df<-CreatesDataframe(Link)
-  GraphsPrices(sf, c(Area, Cartier))
+  GraphsPrices(sf)
 }
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/CleanVector.R
 \name{CleanVector}
 \alias{CleanVector}
-\title{Clean Vector}
+\title{CleanVector}
 \usage{
 CleanVector(Vector, Type)
 }

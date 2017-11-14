@@ -2,7 +2,7 @@
 % Please edit documentation in R/GroupsArea.R
 \name{GroupsArea}
 \alias{GroupsArea}
-\title{Groups Areas}
+\title{GroupsArea}
 \usage{
 GroupsArea(Area)
 }

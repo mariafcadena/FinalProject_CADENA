@@ -2,7 +2,7 @@
 % Please edit documentation in R/CreatesDaraframe.R
 \name{CreatesDataframe}
 \alias{CreatesDataframe}
-\title{Creates Data Frame}
+\title{CreatesDataframe}
 \usage{
 CreatesDataframe(link)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/FixParameters.R
 \name{FixParameters}
 \alias{FixParameters}
-\title{Fix Parameters}
+\title{FixParameters}
 \usage{
 FixParameters(Value, Type)
 }

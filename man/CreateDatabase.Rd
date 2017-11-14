@@ -2,7 +2,7 @@
 % Please edit documentation in R/CreateDatabase.R
 \name{CreateDatabase}
 \alias{CreateDatabase}
-\title{Create Database}
+\title{CreateDatabase}
 \usage{
 CreateDatabase(Cartier, Property, Price, Area, Area_Group, Pieces, Chambres)
 }

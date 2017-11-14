@@ -2,7 +2,7 @@
 % Please edit documentation in R/GetPages.R
 \name{GetPages}
 \alias{GetPages}
-\title{Get pages}
+\title{GetPages}
 \usage{
 GetPages(WEB_PAGE)
 }

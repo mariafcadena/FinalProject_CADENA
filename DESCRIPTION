@@ -1,6 +1,6 @@
 Package: ScrapingSelonger
 Type: Package
-Title: Web scraping real state information of Paris from Selonger.com
+Title: Web scraping real state information from Seloger.com
 Version: 0.1.0
 Author: Maria F CADENA
 Maintainer: Maria F CADENA <maria.cadena@polytechnique.edu>
@@ -9,3 +9,9 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
+Imports: ggplot,
+         rvest,
+         stringi,
+         stringr,
+    prenoms,
+    dplyr
