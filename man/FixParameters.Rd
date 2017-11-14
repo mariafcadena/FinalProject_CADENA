@@ -2,7 +2,7 @@
 % Please edit documentation in R/FixParameters.R
 \name{FixParameters}
 \alias{FixParameters}
-\title{FixParameters}
+\title{Fix Parameters}
 \usage{
 FixParameters(Value, Type)
 }
@@ -19,7 +19,7 @@ Fix Parameters
 }
 \examples{
 
-\dontrun{
+/dontrun{
  FixParameters(AreaScraped, "Area")
 }
 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/GroupsArea.R
 \name{GroupsArea}
 \alias{GroupsArea}
-\title{GroupsArea}
+\title{Groups Areas}
 \usage{
 GroupsArea(Area)
 }
@@ -16,7 +16,7 @@ the group to which the area belongs to
 Groups Areas
 }
 \examples{
-\dontrun{
+/dontrun{
  GroupsArea(Area_Scraped)
 }
 }

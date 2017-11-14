@@ -7,7 +7,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' /dontrun{
 #' Area <-CleanVector(PRE_CARACT, "Area")
 #' }
 CleanVector<- function(Vector, Type)

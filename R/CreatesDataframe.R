@@ -1,7 +1,7 @@
 #' Creates Data Frame
 #'
 #' @param link The link of the selonger pages that is suposed to be scrap
-#'
+#' @import rvest
 #' @return a dataframe with the information scraped from the web page
 #' @export
 #'
@@ -27,12 +27,13 @@ CreatesDataframe <-function(link)
     CARTIER    <- CleanVector(PRE_CARTIER, "Cartier")
     PROPERTY   <- CleanVector(PRE_PROPERTY, "Property")
     PRICE      <- CleanVector(PRE_PRICE, "Price")
+    PRICE_GROUP<- lapply(PRICE,GroupsPrice)
     AREA       <- CleanVector(PRE_CARACT, "Area")
-    AREA_GROUP <- GroupAreaVector(AREA)
+    AREA_GROUP <- lapply(AREA,GroupsArea)
     PIECES     <- CleanVector(PRE_CARACT, "Piece")
     CHAMBRES   <- CleanVector(PRE_CARACT, "Chambre")
 
-    data<-CreateDataBase(CARTIER,PROPERTY,PRICE,AREA,AREA_GROUP,PIECES,CHAMBRES)
+    data<-CreateDatabase(CARTIER,PROPERTY,PRICE, PRICE_GROUP,AREA, AREA_GROUP,PIECES,CHAMBRES)
 
     if (i==1){results<-data
     }else {results<-rbind(results, data)}

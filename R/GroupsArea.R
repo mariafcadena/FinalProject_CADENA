@@ -6,7 +6,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' /dontrun{
 #'  GroupsArea(Area_Scraped)
 #' }
 GroupsArea <- function(Area)

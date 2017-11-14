@@ -2,7 +2,7 @@
 % Please edit documentation in R/CleanVector.R
 \name{CleanVector}
 \alias{CleanVector}
-\title{CleanVector}
+\title{Clean Vector}
 \usage{
 CleanVector(Vector, Type)
 }
@@ -18,7 +18,7 @@ A vector with all the variables in the correct format
 Clean Vector
 }
 \examples{
-\dontrun{
+/dontrun{
 Area <-CleanVector(PRE_CARACT, "Area")
 }
 }

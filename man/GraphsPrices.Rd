@@ -2,12 +2,12 @@
 % Please edit documentation in R/GraphsPrices.R
 \name{GraphsPrices}
 \alias{GraphsPrices}
-\title{GraphsPrices}
+\title{Graphs prices}
 \usage{
-GraphsPrices(SelongerDF)
+GraphsPrices(SelogerDF)
 }
 \arguments{
-\item{SelongerDF}{The dataframe created from the link in Selonger}
+\item{SelogerDF}{}
 }
 \value{
 the graph with the prices per square meter vs the input variables

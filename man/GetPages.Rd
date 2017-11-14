@@ -2,7 +2,7 @@
 % Please edit documentation in R/GetPages.R
 \name{GetPages}
 \alias{GetPages}
-\title{GetPages}
+\title{Get pages}
 \usage{
 GetPages(WEB_PAGE)
 }
@@ -16,7 +16,7 @@ the number of pages the link contains
 Get pages
 }
 \examples{
-\dontrun{
+/dontrun{
   Link<-http://www.seloger.com/list.htm?idtt=2&naturebien=1,2,4&idtypebien=1,2&ci=750056&tri=initial&surfacemin=5&surfacemax=9
   WEB_PAGE<-read_html(Link)
   GetPages(WEB_PAGES)

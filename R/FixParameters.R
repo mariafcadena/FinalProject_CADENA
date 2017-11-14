@@ -10,17 +10,22 @@
 #'
 #' @examples
 #'
-#' \dontrun{
+#' /dontrun{
 #'  FixParameters(AreaScraped, "Area")
 #' }
 #'
 #'
 FixParameters <- function(Value, Type)
 {
+  #Sets cartier name
+  if(Type=="Cartier"){
+    FinalParameter<-stri_trans_general(Value,"Latin-ASCII")
+  }
+
   #Sets the price as a numerical variable
   if (Type=="Price")
     {
-      P1<-stri_trans_general(trimws(gsub("^\\s*<U\\+\\w+>|-", " ", Price)),"Latin-ASCII")
+      P1<-stri_trans_general(trimws(gsub("^\\s*<U\\+\\w+>|-", " ", Value)),"Latin-ASCII")
       P2<-regmatches(P1,gregexpr(" ", P1),TRUE)
       FinalParameter=""
       for (i in 1:(length(P2[[1L]])-1))
@@ -32,7 +37,7 @@ FixParameters <- function(Value, Type)
   #Sets the property type
   if (Type=="Property")
   {
-      a<-unlist(str_locate_all(pattern ='Appartement', Property))
+      a<-unlist(str_locate_all(pattern ='Appartement', Value))
       if (length(a)>0){FinalParameter<-'Appartement'} else { FinalParameter<-'Maison' }
   }
   #Sets the piece as a numerical variable
@@ -43,7 +48,7 @@ FixParameters <- function(Value, Type)
     FinalParameter <- trimws(P2[[1L]][1], "both")
     if (grepl(",",FinalParameter)==TRUE){FinalParameter<-gsub(",", ".", FinalParameter)}
     options(digits=5)
-    return(as.numeric(FinalParameter))
+    FinalParameter<-as.numeric(FinalParameter)
   }
   #Sets the number of chambres as a numerical variable
   if (Type=="Chambre")
@@ -51,11 +56,11 @@ FixParameters <- function(Value, Type)
     P1  <-  stri_trans_general(trimws(gsub("^\\s*<U\\+\\w+>|-", " ", Value)),"Latin-ASCII")
     P2  <-  regmatches(P1,gregexpr("p", P1),TRUE)
     P3  <-  regmatches(P2[[1L]][2],gregexpr("chb", P2[[1L]][2]),TRUE)
-    if (length(P3[[1L]])==1){NewCaract<-0}
+    if (length(P3[[1L]])==1){FinalParameter<-0}
     else {FinalParameter<-stri_trans_general(trimws(gsub("^\\s*<U\\+\\w+>|-", " ", P3[[1L]][1])),"Latin-ASCII")}
     if (grepl(",",FinalParameter)==TRUE){FinalParameter<-gsub(",", ".", FinalParameter)}
     options(digits=5)
-    return(as.numeric(FinalParameter))
+    FinalParameter<-as.numeric(FinalParameter)
   }
   #Sets the area as a numerical variable
   if (Type=="Area")
@@ -67,7 +72,7 @@ FixParameters <- function(Value, Type)
     FinalParameter<-stri_trans_general(trimws(gsub("^\\s*<U\\+\\w+>|-", " ", P3[[1L]][1])),"Latin-ASCII")
     if (grepl(",",FinalParameter)==TRUE){FinalParameter<-gsub(",", ".", FinalParameter)}
     options(digits=5)
-    return(as.numeric(FinalParameter))
+    FinalParameter<-as.numeric(FinalParameter)
   }
   return(FinalParameter)
 }

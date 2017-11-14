@@ -2,9 +2,10 @@
 % Please edit documentation in R/CreateDatabase.R
 \name{CreateDatabase}
 \alias{CreateDatabase}
-\title{CreateDatabase}
+\title{Create Database}
 \usage{
-CreateDatabase(Cartier, Property, Price, Area, Area_Group, Pieces, Chambres)
+CreateDatabase(Cartier, Property, Price, Price_Group, Area, Area_Group, Pieces,
+  Chambres)
 }
 \arguments{
 \item{Cartier}{Cartier Array}
@@ -13,9 +14,11 @@ CreateDatabase(Cartier, Property, Price, Area, Area_Group, Pieces, Chambres)
 
 \item{Price}{Price Array}
 
+\item{Price_Group}{Price group array}
+
 \item{Area}{Area Array}
 
-\item{Area_Group}{Grouped Area Array}
+\item{Area_Group}{Area group array}
 
 \item{Pieces}{Pieces Array}
 
@@ -28,7 +31,7 @@ Data frame with the input information
 Create Database
 }
 \examples{
-\dontrun{
+/dontrun{
 CreateData(Cartier, Property, Price, Area, Area_Group, Pieces, Chambres)
 }
 }

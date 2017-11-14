@@ -1,7 +1,9 @@
 #' Graphs prices
 #'
-#' @param SelongerDF The dataframe created from the link in Selonger
-#' @import ggplot
+#' @param SelogerDF
+#'
+#' @import ggplot2
+#' @import reshape2
 #' @import RColorBrewer
 #' @return the graph with the prices per square meter vs the input variables
 #' @export
@@ -12,9 +14,9 @@
 #'   df<-CreatesDataframe(Link)
 #'   GraphsPrices(sf)
 #' }
-GraphsPrices<-function(SelongerDF)
+GraphsPrices<-function(SelogerDF)
 {
-  GroupedData <- SelongerDF %>% group_by(Cartier, Area) %>% summarize(Price=max(Price))
-  p <- plot_ly(x = Cartier, y = Area, z = Price,colors = colorRamp(c("red","yellow", "green")), type = "heatmap")
-  return(p)
+  Seloger_melted <- melt(SelogerDF)
+  head(Seloger_melted)
+  ggplot(data = Seloger_melted, aes(x=CARTIER, y=AREA_GROUP, fill=PRICE)) + geom_tile()
 }
