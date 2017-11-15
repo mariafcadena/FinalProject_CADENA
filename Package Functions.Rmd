@@ -1,0 +1,103 @@
+---
+title: "Seloger Scraper"
+output: html_notebook
+---
+
+*Get Pages*
+This functions reads the web page given and returns the amount of pages of all the anounces in the link
+
+```{r}
+library(ScrapingSelonger)
+library(rvest)
+link<-"http://www.seloger.com/list.htm?idtt=2&naturebien=1,2,4&idtypebien=1,2&ci=750056&tri=initial&surfacemin=5&surfacemax=20"
+Web_page<-read_html(link)
+No_Pages<-GetPages(Web_page)
+print(No_Pages)
+```
+
+*Creates DataFrame*
+Takes the input link and downloads all the announces into a DataFrame
+
+```{r}
+library(ScrapingSelonger)
+link<-"http://www.seloger.com/list.htm?idtt=2&naturebien=1,2,4&idtypebien=1,2&ci=750056&tri=initial&surfacemin=5&surfacemax=20"
+Data<-CreatesDataframe(link)
+```
+
+*Fix Parameters*
+Adjusts the scrapped data. Posibles inputs of Type (Cartier, Property, Area, Piece, Chambre)
+
+```{r}
+library(ScrapingSelonger)
+link<-"http://www.seloger.com/list.htm?idtt=2&naturebien=1,2,4&idtypebien=1,2&ci=750056&tri=initial&surfacemin=5&surfacemax=20"
+WEB_PAGE <- read_html(link)
+PRE_CARTIER  <- WEB_PAGE %>% html_nodes(".c-pa-city") %>% html_text()
+CARTIER <-FixParameters(PRE_CARTIER[1],"Cartier")
+print(CARTIER)
+```
+
+*Clean Vector*
+Adjusts the complete arry with FixParameters. Posibles inputs of Type (Cartier, Property, Area, Piece, Chambre, Price)
+
+```{r}
+library(ScrapingSelonger)
+link<-"http://www.seloger.com/list.htm?idtt=2&naturebien=1,2,4&idtypebien=1,2&ci=750056&tri=initial&surfacemin=5&surfacemax=20"
+WEB_PAGE <- read_html(link)
+PRE_CARTIER  <- WEB_PAGE %>% html_nodes(".c-pa-city") %>% html_text()
+CARTIER <-CleanVector(PRE_CARTIER,"Cartier")
+print(CARTIER)
+```
+
+*Groups Area*
+Set the areas in discrete groups
+
+```{r}
+library(ScrapingSelonger)
+link<-"http://www.seloger.com/list.htm?idtt=2&naturebien=1,2,4&idtypebien=1,2&ci=750056&tri=initial&surfacemin=5&surfacemax=20"
+WEB_PAGE <- read_html(link)
+PRE_CARACT   <- WEB_PAGE %>% html_nodes(".c-pa-criterion") %>% html_text()
+AREA      <- CleanVector(PRE_PRICE, "Area")
+AREA_GROUP<- lapply(PRICE,GroupsArea)
+print(AREA_GROUP)
+```
+
+*Groups Prices*
+Set the prices in discrete groups
+
+```{r}
+library(ScrapingSelonger)
+link<-"http://www.seloger.com/list.htm?idtt=2&naturebien=1,2,4&idtypebien=1,2&ci=750056&tri=initial&surfacemin=5&surfacemax=20"
+WEB_PAGE <- read_html(link)
+PRE_CARACT   <- WEB_PAGE %>% html_nodes(".c-pa-criterion") %>% html_text()
+PRICE      <- CleanVector(PRE_PRICE, "Price")
+PRICE_GROUP<- lapply(PRICE,GroupsPrice)
+print(PRICE_GROUP)
+```
+
+*Download All Info of Paris*
+Using the functions on the package is posible to download all the information of one city in Selonger.com
+
+```{r}
+library(ScrapingSelonger)
+m = matrix(c(5,10,20,30,40,50,60,70,80,100,150,200,9,19,29,39,49,59,69,79,99,149,199,400), nrow=12, ncol=2)
+links =NULL
+for (i in 1:12)
+{
+  p1 <-"http://www.seloger.com/list.htm?idtt=2&naturebien=1,2,4&idtypebien=1,2&ci=750056&tri=initial&"
+  p2 <- paste("surfacemin=",as.character(m[i,1]), sep="")
+  p3 <- paste("&surfacemax=",as.character(m[i,2]), sep="")
+  link=paste(paste(p1,p2, sep=""),p3, sep="")
+  links=append(links, link)
+}
+
+#Loop through Areas
+for (i in range(links))
+{
+  ScrapedData <-CreatesDataframe(links[i])
+  if (i==1){
+    ParisData<-ScrapedData
+  } else {ParisData<-rbind(ParisData, ScrapedData)}
+}
+```
+
+sometimes selonger.com identifies the web scrapin and blocks the user. That has been a problem when finishing the loop defined in the previous chunk
