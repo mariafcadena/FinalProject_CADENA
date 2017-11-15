@@ -100,4 +100,4 @@ for (i in range(links))
 }
 ```
 
-sometimes selonger.com identifies the web scrapin and blocks the user. That has been a problem when finishing the loop defined in the previous chunk
+sometimes selonger.com identifies the web scrapin and blocks the user. That has been a problem when finishing the loop defined in the previous chunk.
